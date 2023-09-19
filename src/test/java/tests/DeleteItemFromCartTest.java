@@ -9,7 +9,7 @@ public class DeleteItemFromCartTest extends BaseTest {
     ProductSteps productSteps = new ProductSteps();
     CartSteps cartSteps = new CartSteps();
 
-    @Test(description = "Удаление товара из корзины")
+    @Test(description = "Удаление товара из корзины", groups = "smock")
     public void removeBackPackFromCart() {
         loginInOnStartPage();
         productSteps.addBackpackInCart();

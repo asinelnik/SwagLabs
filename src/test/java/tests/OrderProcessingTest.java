@@ -8,7 +8,7 @@ public class OrderProcessingTest extends BaseTest {
 
     CheckoutSteps checkoutSteps = new CheckoutSteps();
 
-    @Test(description = "Добавление товара в корзину")
+    @Test(description = "Добавление товара в корзину", groups = "smock")
     public void productClearance() {
         loginInOnStartPage();
         getSauceLabsBackpackInCart();

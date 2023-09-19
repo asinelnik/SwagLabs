@@ -9,7 +9,7 @@ public class GetItemInCartTestTest extends BaseTest {
     ProductSteps productSteps = new ProductSteps();
     CartSteps cartSteps = new CartSteps();
 
-    @Test(description = "Добавление товара в корзину")
+    @Test(description = "Добавление товара в корзину",groups = "smock")
     public void getProductsInBasket() {
         loginInOnStartPage();
         productSteps.addBackpackInCart();

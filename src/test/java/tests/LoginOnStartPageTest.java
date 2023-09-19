@@ -10,7 +10,7 @@ public class LoginOnStartPageTest extends BaseTest {
 
     LoginPageSteps loginPageSteps = new LoginPageSteps();
 
-    @Test(description = "Авторизация в магазине")
+    @Test(description = "Авторизация в магазине", groups = "smock")
     public void loginIn() {
         loginPageSteps.openLoginForm();
         loginPageSteps.setName(USER);
