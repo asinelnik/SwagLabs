@@ -12,6 +12,9 @@ public interface TestConfig extends Config {
     @Key("login.login")
     String user();
 
+    @Key("login.problemLogin")
+    String problemUser();
+
     @Key("login.password")
     String password();
 }

@@ -11,9 +11,9 @@ public class DeleteItemFromCartTest extends BaseTest {
     private final ProductSteps productSteps = new ProductSteps();
     private final CartSteps cartSteps = new CartSteps();
 
-    @Test(description = "Удаление товара из корзины", groups = "smock")
-    public void removeBackPackFromCart() {
-        baseStep.loginInOnStartPage();
+    @Test(description = "Удаление товара из корзины", dataProvider = "authParamUser", dataProviderClass = BaseStep.class)
+    public void removeBackPackFromCart(String USER, String PASS) {
+        baseStep.loginOnStartPageDataProvider(USER, PASS);
         productSteps.addBackpackInCart();
         cartSteps.openCartPageGetInfoItem();
         cartSteps.removeBackPack();

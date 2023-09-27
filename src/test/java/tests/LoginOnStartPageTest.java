@@ -1,17 +1,17 @@
 package tests;
 
+import org.aeonbits.owner.ConfigFactory;
 import org.testng.annotations.Test;
+import servise.BaseStep;
 import servise.BaseTest;
+import servise.TestConfig;
 import steps.LoginPageSteps;
 
 public class LoginOnStartPageTest extends BaseTest {
-    private final static String USER = ("standard_user");
-    private final static String PASS = ("secret_sauce");
-
     private final LoginPageSteps loginPageSteps = new LoginPageSteps();
 
-    @Test(description = "Авторизация в магазине", groups = "smock")
-    public void loginIn() {
+    @Test(description = "Авторизация в магазине", dataProvider = "authParamUser", dataProviderClass = BaseStep.class)
+    public void loginIn(String USER, String PASS) {
         loginPageSteps.openLoginForm();
         loginPageSteps.setName(USER);
         loginPageSteps.setPasswordField(PASS);

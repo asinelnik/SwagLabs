@@ -12,9 +12,9 @@ public class GetItemInCartTestTest extends BaseTest {
     private final ProductSteps productSteps = new ProductSteps();
     private final CartSteps cartSteps = new CartSteps();
 
-    @Test(description = "Добавление товара в корзину",groups = "smock")
-    public void getProductsInBasket() {
-        baseStep.loginInOnStartPage();
+    @Test(description = "Добавление товара в корзину", dataProvider = "authParamUser", dataProviderClass = BaseStep.class)
+    public void getProductsInBasket(String USER, String PASS) {
+        baseStep.loginOnStartPageDataProvider(USER, PASS);
         productSteps.addBackpackInCart();
         cartSteps.openCartPageGetInfoItem();
         cartSteps.continueShoppingOnProduct();

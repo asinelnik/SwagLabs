@@ -6,6 +6,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import servise.WebDriver.CustomChromeDriver;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
@@ -19,6 +20,10 @@ public class BaseTest {
     public void setUp() {
         Configuration.browser = CustomChromeDriver.class.getCanonicalName();
         SelenideLogger.addListener("allure", new AllureSelenide());
+    }
+
+    @BeforeMethod
+    public void setUpAll() {
         open(propUrl);
     }
 

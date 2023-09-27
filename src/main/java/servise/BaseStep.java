@@ -2,6 +2,7 @@ package servise;
 
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.DataProvider;
 import pages.LoginPage;
 import pages.ProductPage;
 
@@ -10,9 +11,24 @@ import static com.codeborne.selenide.Condition.text;
 public class BaseStep {
     LoginPage loginPage = new LoginPage();
     ProductPage productPage = new ProductPage();
-    TestConfig testConfig = ConfigFactory.create(TestConfig.class);
-    String propUser = testConfig.user();
-    String propPass = testConfig.password();
+    static TestConfig testConfig = ConfigFactory.create(TestConfig.class);
+    static String propUser = testConfig.user();
+    static String propPass = testConfig.password();
+
+    static String problemUser = testConfig.problemUser();
+
+    @DataProvider(name = "authParamUser")
+    public static Object[][] authParamUser() {
+        return new Object[][]{
+                {propUser, propPass},
+                {problemUser, propPass}
+        };
+    }
+    public void loginOnStartPageDataProvider(String a, String b){
+        loginPage.loginElements.userNameField.sendKeys(a);
+        loginPage.loginElements.passwordField.sendKeys(b);
+        loginPage.loginElements.loginButton.click();
+    }
 
     public void loginInOnStartPage() {
         loginPage.loginElements.userNameField.sendKeys(propUser);
