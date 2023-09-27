@@ -7,8 +7,8 @@ import pages.ProductPage;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class LoginPageSteps {
-    LoginPage loginPage = new LoginPage();
-    ProductPage productPage = new ProductPage();
+    private final LoginPage loginPage = new LoginPage();
+    private final ProductPage productPage = new ProductPage();
 
     @Step("open URL")
     public void openLoginForm() {

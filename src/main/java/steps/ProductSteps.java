@@ -6,7 +6,7 @@ import pages.ProductPage;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class ProductSteps {
-    ProductPage productPage = new ProductPage();
+    private final ProductPage productPage = new ProductPage();
 
     @Step("Проверка изменения кнопки на Remove")
     public void addBackpackInCart() {

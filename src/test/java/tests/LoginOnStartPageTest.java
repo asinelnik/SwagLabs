@@ -8,7 +8,7 @@ public class LoginOnStartPageTest extends BaseTest {
     private final static String USER = ("standard_user");
     private final static String PASS = ("secret_sauce");
 
-    LoginPageSteps loginPageSteps = new LoginPageSteps();
+    private final LoginPageSteps loginPageSteps = new LoginPageSteps();
 
     @Test(description = "Авторизация в магазине", groups = "smock")
     public void loginIn() {

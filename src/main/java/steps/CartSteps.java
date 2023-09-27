@@ -7,8 +7,8 @@ import pages.ProductPage;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CartSteps {
-    CartPage cartPage = new CartPage();
-    ProductPage productPage = new ProductPage();
+    private final CartPage cartPage = new CartPage();
+    private final ProductPage productPage = new ProductPage();
 
     @Step("Открытие корзины")
     public void openCartPageGetInfoItem() {

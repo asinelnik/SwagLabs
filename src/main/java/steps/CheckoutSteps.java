@@ -8,8 +8,8 @@ import pages.CheckoutPage;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CheckoutSteps {
-    CartPage cartPage = new CartPage();
-    CheckoutPage checkoutPage = new CheckoutPage();
+    private final CartPage cartPage = new CartPage();
+    private final CheckoutPage checkoutPage = new CheckoutPage();
     public static String FIRS_TNAME = ("Георгий");
     public static String LAST_NAME = ("Жигарев");
     public static String ZIP_POSTAL_CODE = ("156000");
