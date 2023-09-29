@@ -14,7 +14,6 @@ public class BaseStep {
     static TestConfig testConfig = ConfigFactory.create(TestConfig.class);
     static String propUser = testConfig.user();
     static String propPass = testConfig.password();
-
     static String problemUser = testConfig.problemUser();
 
     @DataProvider(name = "authParamUser")
@@ -24,7 +23,8 @@ public class BaseStep {
                 {problemUser, propPass}
         };
     }
-    public void loginOnStartPageDataProvider(String a, String b){
+
+    public void loginOnStartPageDataProvider(String a, String b) {
         loginPage.loginElements.userNameField.sendKeys(a);
         loginPage.loginElements.passwordField.sendKeys(b);
         loginPage.loginElements.loginButton.click();
@@ -49,7 +49,7 @@ public class BaseStep {
         }
     }
 
-    //Не нашел информации по коллекциям, как можно реализовать в одну строку
+
     public void collectionForPasha() {
         for (WebElement element : productPage.productsElement.itemListButton.filterBy(text("Remove"))) {
             element.click();

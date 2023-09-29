@@ -1,9 +1,9 @@
 package servise;
 
 import org.aeonbits.owner.Config;
-import org.openqa.selenium.WebDriver;
+@Config.Sources({"classpath:Application.properties"})
+@Config.LoadPolicy(Config.LoadType.MERGE)
 
-@Config.Sources("classpath:Application.properties")
 public interface TestConfig extends Config {
 
     @Key("login.url")
