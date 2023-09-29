@@ -12,7 +12,7 @@ public class CustomChromeDriver implements WebDriverProvider {
     @Override
     public WebDriver createDriver(Capabilities capabilities) {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
+        //options.addArguments("--headless");
         options.addArguments("--disable-gpu");
         options.addArguments("--no-sandbox");
         options.addArguments("--window-size=1920,1080");
