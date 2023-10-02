@@ -11,6 +11,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,9 +24,8 @@ public class BaseTest {
     String propUrl = testConfig.url();
 
     @BeforeClass
-    public void setUp() {
+    public void setUp() throws MalformedURLException {
         ChromeOptions options = new ChromeOptions();
-
         options.setCapability("selenoid:options", new HashMap<String, Object>() {{
             /* How to add test badge */
             put("name", "Test badge...");
@@ -46,6 +46,7 @@ public class BaseTest {
             /* How to enable video recording */
             put("enableVideo", true);
         }});
+        RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
         // Configuration.browser = CustomChromeDriver.class.getCanonicalName();
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
