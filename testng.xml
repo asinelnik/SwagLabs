@@ -1,8 +1,0 @@
-<suite name="Selenide Tests">
-    <parameter name="remote" value="http://localhost:4444/wd/hub"/>
-    <test name="Selenide Test">
-        <classes>
-            <class name="com.example.Testik.DeleteItemFromCartTest"/>
-        </classes>
-    </test>
-</suite>
