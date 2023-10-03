@@ -33,7 +33,7 @@ public class RemoteDriver {
             /* How to enable video recording */
             put("enableVideo", true);
         }});
-        RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+        RemoteWebDriver driver = new RemoteWebDriver(new URL("http://http://localhost:32771/wd/hub"), options);
         return driver;
     }
 
