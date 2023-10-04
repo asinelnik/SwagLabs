@@ -2,11 +2,15 @@
   "chrome": {
     "default": "117.0",
     "versions": {
-      "99.0": {
+      "117.0": {
         "image": "selenoid/chrome:117.0",
         "port": "4444",
         "path": "/"
-      }
-    }
+      },
+      "116.0":{
+        "image": "selenoid/chrome:116.0",
+        "port": "4444",
+        "path": "/"
+      }}
   }
 }
