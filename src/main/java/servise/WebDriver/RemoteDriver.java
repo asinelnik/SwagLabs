@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 public class RemoteDriver {
 
-    public void remoteDriverCreate() throws MalformedURLException {
+    public WebDriver remoteDriverCreate() throws MalformedURLException {
         ChromeOptions options = new ChromeOptions();
 
         options.setCapability("selenoid:options", new HashMap<String, Object>() {{
@@ -35,7 +35,8 @@ public class RemoteDriver {
             /* How to enable video recording */
             put("enableVideo", true);
         }});
-        RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+        WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+        return driver;
     }
 
 }
