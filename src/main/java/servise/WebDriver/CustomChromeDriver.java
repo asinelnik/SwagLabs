@@ -20,6 +20,12 @@ public class CustomChromeDriver implements WebDriverProvider {
         options.addArguments("--disable-cache");
         options.addArguments("--disable-cookies");
         options.addArguments("-incognito");
+        options.setCapability("browserVersion", "117.0");
+        options.setCapability("enableVNC", true);
+        options.setCapability("enableVideo", true);
+        options.setCapability("videoName", "testUI" + ".mp4");
+        options.setCapability("logName", "testUI" + ".log");
+
         SeleniumManager.getInstance().getDriverPath(options, false);
         return new ChromeDriver(options);
     }
