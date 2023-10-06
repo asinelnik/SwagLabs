@@ -1,5 +1,6 @@
 package servise.WebDriver;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverProvider;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +19,6 @@ public class SelenoidWebDriverProvider implements WebDriverProvider {
     public WebDriver createDriver(Capabilities capabilities) {
         RemoteWebDriver driver;
         ChromeOptions options = new ChromeOptions();
-
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");
         options.addArguments("--no-sandbox");
