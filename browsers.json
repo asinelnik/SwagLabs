@@ -5,12 +5,8 @@
       "117.0": {
         "image": "selenoid/chrome:117.0",
         "port": "4444",
-        "path": "/"
-      },
-      "116.0":{
-        "image": "selenoid/chrome:116.0",
-        "port": "4444",
-        "path": "/"
+        "path": "/",
+        "screenResolution": "1920x1080x24"
       }}
   }
 }

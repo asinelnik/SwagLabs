@@ -1,8 +1,6 @@
 package servise.WebDriver;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
@@ -11,10 +9,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RemoteDriver {
-
-    public WebDriver remoteDriverCreate() throws MalformedURLException {
+    public RemoteWebDriver remoteDriverCreate() throws MalformedURLException {
         ChromeOptions options = new ChromeOptions();
-
+        options.setCapability("browserVersion", "117.0");
         options.setCapability("selenoid:options", new HashMap<String, Object>() {{
             /* How to add test badge */
             put("name", "Test badge...");
@@ -35,7 +32,7 @@ public class RemoteDriver {
             /* How to enable video recording */
             put("enableVideo", true);
         }});
-        WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+        RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
         return driver;
     }
 
