@@ -11,6 +11,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 public class SelenoidWebDriverProvider implements WebDriverProvider {
@@ -19,24 +21,30 @@ public class SelenoidWebDriverProvider implements WebDriverProvider {
     public WebDriver createDriver(Capabilities capabilities) {
         RemoteWebDriver driver;
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--disable-gpu");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--window-size=1920,1080");
-        options.addArguments("--disable-cache");
-        options.addArguments("--disable-cookies");
-        options.addArguments("-incognito");
-        SeleniumManager.getInstance().getDriverPath(options, false);
+
+        options.setCapability("selenoid:options", new HashMap<String, Object>() {{
+            /* How to add test badge */
+            put("name", "Test badge...");
+            /* How to set session timeout */
+            put("sessionTimeout", "15m");
+            /* How to set timezone */
+            put("env", new ArrayList<String>() {{
+                add("TZ=UTC");
+            }});
+            /* How to add "trash" button */
+            put("labels", new HashMap<String, Object>() {{
+                put("manual", "true");
+            }});
+            /* How to enable video recording */
+            put("enableVNC", true);
+        }});
         try {
-            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub/"), options);
-            driver.manage().timeouts().implicitlyWait(0, TimeUnit.MILLISECONDS);
-            driver.manage().timeouts().setScriptTimeout(120, TimeUnit.SECONDS);
-            driver.setFileDetector(new LocalFileDetector());
-            return driver;
+            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
         } catch (MalformedURLException e) {
             e.printStackTrace();
             assert false;
             return null;
         }
+        return driver;
     }
 }
