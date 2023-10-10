@@ -23,19 +23,14 @@ public class SelenoidWebDriverProvider implements WebDriverProvider {
         ChromeOptions options = new ChromeOptions();
 
         options.setCapability("selenoid:options", new HashMap<String, Object>() {{
-            /* How to add test badge */
             put("name", "Test badge...");
-            /* How to set session timeout */
             put("sessionTimeout", "15m");
-            /* How to set timezone */
             put("env", new ArrayList<String>() {{
                 add("TZ=UTC");
             }});
-            /* How to add "trash" button */
             put("labels", new HashMap<String, Object>() {{
                 put("manual", "true");
             }});
-            /* How to enable video recording */
             put("enableVNC", true);
         }});
         try {
