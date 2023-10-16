@@ -21,6 +21,7 @@ public class SelenoidWebDriverProvider implements WebDriverProvider {
     public WebDriver createDriver(Capabilities capabilities) {
         RemoteWebDriver driver;
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--start-maximized");
 
         options.setCapability("selenoid:options", new HashMap<String, Object>() {{
             put("name", "Test badge...");
@@ -43,3 +44,5 @@ public class SelenoidWebDriverProvider implements WebDriverProvider {
         return driver;
     }
 }
+
+// TODO: 10.10.2023  Параллельный запуск тестов
