@@ -6,7 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.*;
 
 public class ProductsElement {
-    public SelenideElement inventoryItemSauceLabsBackpack = $x("//*[@class='inventory_item_name' and contains (text(), 'Sauce Labs Backpack')]")
+    public SelenideElement inventoryItemSauceLabsBackpack = $("a[id='item_4_title_link'] div[class^='inventory']")
             .as("Ссылка на страницу товара Sauce Labs Backpack");
     public SelenideElement addToCartButton = $("#add-to-cart-sauce-labs-backpack").as("Кнопка добавления в корзину");
     public SelenideElement removeFromCart = $x("//*[@class='btn btn_secondary btn_small btn_inventory']").as("Кнопка удаления товара из корзины");
