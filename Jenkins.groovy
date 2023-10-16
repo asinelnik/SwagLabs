@@ -17,7 +17,7 @@ pipeline {
                     }
 
                     cleanWs()
-                    git credentialsId: 'gitlabUiCredentials', url: 'https://gitlab.mmtr.ru/naimixqa/naimixqa.git', branch: 'master'
+                    git credentialsId: 'gitlabUiCredentials', url: 'https://github.com/asinelnik/SwagLabs', branch: 'master'
                 }
             }
         }
