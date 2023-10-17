@@ -7,6 +7,7 @@ import org.aeonbits.owner.ConfigFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import servise.WebDriver.CustomChromeDriver;
 import servise.WebDriver.SelenoidWebDriverProvider;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
