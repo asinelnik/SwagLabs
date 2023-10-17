@@ -19,7 +19,7 @@ public class BaseTest {
 
     @BeforeClass
     public void setUp() {
-        Configuration.browser = CustomChromeDriver.class.getCanonicalName();
+        Configuration.browser = SelenoidWebDriverProvider.class.getCanonicalName();
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
